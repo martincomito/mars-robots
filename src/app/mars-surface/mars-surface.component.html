@@ -1,13 +1,26 @@
 <div class="general-container">
-  <label for="surfaceSize">Surface size:</label>
-  <input #surfaceSize type="text" name="surfaceSize" id="surfaceSize" placeholder="Enter surface size (e.g: 5 3)">
+  <label for="surfaceSize">Surface size (height width):</label>
+  <input #surfaceSize type="text" name="surface-size" id="surface-size" placeholder="e.g: 5 3">
   <button (click)="createSurface(surfaceSize.value)">Set size</button>
+
+  <br>
+  <br>
+
+  <label for="initial-coordinates">Initial coordinates:</label>
+  <input #initialCoordinates type="text" name="initial-coordinates" id="initial-coordinates">
+  <button (click)="parseCoordAndOrientation(initialCoordinates.value)">Set initial position</button>
+  <br>
+  <br>
+
+  <label for="instructions">Instructions</label>
+  <input #instructions type="text" name="instructions" id="instructions">
+  <button (click)="parseInstructions(instructions.value)">Go!</button>
 </div>
 
 <div id="container">
   <table>
     <tr *ngFor="let item of row">
-      <td *ngFor="let it of column">{{it}}-{{item}}</td>
+      <td [id]="it + '-' + item" *ngFor="let it of column">{{item}}-{{it}}</td>
     </tr>
   </table>  
 </div>
