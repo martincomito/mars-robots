@@ -1,3 +1,13 @@
-<p>
-  mars-surface works!
-</p>
+<div class="general-container">
+  <label for="surfaceSize">Surface size:</label>
+  <input #surfaceSize type="text" name="surfaceSize" id="surfaceSize" placeholder="Enter surface size (e.g: 5 3)">
+  <button (click)="createSurface(surfaceSize.value)">Set size</button>
+</div>
+
+<div id="container">
+  <table>
+    <tr *ngFor="let item of row">
+      <td *ngFor="let it of column">{{it}}-{{item}}</td>
+    </tr>
+  </table>  
+</div>
